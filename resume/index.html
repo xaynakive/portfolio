@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Résumé · xaynakive</title>
+<meta name="description" content="Xayna (xaynakive) — design engineer. A plain, readable résumé: experience, projects, skills, and links."/>
+<link rel="icon" href="/favicon.gif" type="image/gif"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Mali:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{ --lav:#7a5fc0; --ink:#26303f; --muted:#5a6580; --faint:#8590a6; --line:#e3e2f0; --bg:#f6f5fb; --card:#ffffff; }
+  html[data-theme="dark"]{ --lav:#c6b8e8; --ink:#edf2fb; --muted:#9fb0c8; --faint:#66748c; --line:rgba(198,184,232,.16); --bg:#0d1120; --card:rgba(255,255,255,.03); }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Mali",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--lav);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+  a:hover,a:focus-visible{border-color:var(--lav)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lav);outline-offset:3px}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(20px,5vw,40px)}
+
+  .skip{position:absolute;left:-999px;top:0;background:var(--lav);color:#fff;padding:8px 14px;border-radius:8px;z-index:10}
+  .skip:focus{left:12px;top:12px}
+
+  header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:8px}
+  h1{font-family:"Mali",sans-serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);letter-spacing:-.01em;line-height:1.1}
+  .tag{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.04em;color:var(--muted);margin-top:8px}
+  .contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.02em}
+  .contact a{color:var(--ink)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .btn{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.05em;color:var(--lav);border:1px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer;background:none;transition:.18s}
+  .btn:hover{border-color:var(--lav)}
+  .btn.solid{background:var(--lav);color:#fff;border-color:var(--lav)}
+
+  section{margin-top:34px}
+  h2{font-family:"DM Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--lav);margin-bottom:16px}
+  .lede{font-size:1.05rem;line-height:1.7;color:var(--ink);max-width:64ch}
+
+  .role{display:grid;grid-template-columns:130px 1fr;gap:6px 20px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .role:last-child{border-bottom:none}
+  .role .when{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:var(--faint);padding-top:4px}
+  .role .what b{font-size:1.05rem;font-weight:600;display:block}
+  .role .what .org{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.03em;color:var(--muted);margin:2px 0 6px}
+  .role .what p{font-size:.95rem;line-height:1.6;color:var(--muted)}
+  @media(max-width:560px){ .role{grid-template-columns:1fr;gap:2px} .role .when{padding-top:0} }
+
+  .proj{padding:12px 0;border-bottom:1px solid var(--line)}
+  .proj:last-child{border-bottom:none}
+  .proj b{font-size:1rem;font-weight:600}
+  .proj .p-links{font-family:"DM Mono",monospace;font-size:11px;margin-left:8px}
+  .proj p{font-size:.94rem;line-height:1.6;color:var(--muted);margin-top:3px}
+
+  .skills{display:grid;grid-template-columns:150px 1fr;gap:10px 20px}
+  .skills dt{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding-top:2px}
+  .skills dd{font-size:.95rem;color:var(--ink)}
+  @media(max-width:560px){ .skills{grid-template-columns:1fr;gap:2px 0} .skills dd{margin-bottom:10px} }
+
+  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-family:"DM Mono",monospace;font-size:11.5px;color:var(--faint)}
+  footer a{color:var(--muted)}
+  @media print{ .toolbar,.skip{display:none} body{background:#fff;color:#000} }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<main class="wrap" id="main">
+
+  <header>
+    <h1>Xayna</h1>
+    <p class="tag">design engineer · frontend, machine learning &amp; creative technology · she/her</p>
+    <nav class="contact" aria-label="contact">
+      <a href="mailto:meow@xaynakive.com">meow@xaynakive.com</a>
+      <a href="https://xaynakive.com">xaynakive.com</a>
+      <a href="https://github.com/xaynakive" target="_blank" rel="noopener">github.com/xaynakive</a>
+      <a href="https://www.linkedin.com/in/xaynakive" target="_blank" rel="noopener">linkedin.com/in/xaynakive</a>
+      <span>Lahore, Pakistan</span>
+    </nav>
+    <div class="toolbar">
+      <a class="btn solid" href="/cv.pdf" target="_blank" rel="noopener">download PDF ↗</a>
+      <a class="btn" href="/">view the interactive site ↗ (currently in dev)</a>
+      <button class="btn" id="theme" aria-pressed="false">dark mode</button>
+    </div>
+  </header>
+
+  <section aria-labelledby="s-summary">
+    <h2 id="s-summary">summary</h2>
+    <p class="lede">Design engineer with 6+ years of experience building expressive interfaces and the systems beneath them, across frontend, machine learning and creative technology. I turn ideas into almost anything, from a delicate interface to a compiler or a piece of hardware, and I like the ones that don't have a sensible category yet.</p>
+  </section>
+
+  <section aria-labelledby="s-exp">
+    <h2 id="s-exp">experience</h2>
+    <div class="role"><div class="when">2026 — now</div><div class="what"><b>Creator &amp; Maintainer</b><div class="org">MEOW · Modular Editor for Open Websites</div><p>Building a modular, open-source creative editor: extensible architecture, expressive interfaces, and contributor-friendly development.</p></div></div>
+    <div class="role"><div class="when">2026 — now</div><div class="what"><b>Software Engineering Fellow</b><div class="org">Hash Engineering</div><p>One of 16 fellows chosen from 150+ applicants for the inaugural cohort. Shipping a full app against an engineering brief in a fully-remote PR-review flow.</p></div></div>
+    <div class="role"><div class="when">2025 — 2026</div><div class="what"><b>AI/ML Contributor</b><div class="org">Call Connect AI · Remote (UK)</div><p>Built an NLP emotion-classification model for call-centre transcripts, sorting customer sentiment across categories, and stress-tested outputs for reliability.</p></div></div>
+    <div class="role"><div class="when">2024 — 2026</div><div class="what"><b>Founder &amp; Product Designer</b><div class="org">PixelFiles · Template Studio</div><p>Founded a retro/VHS-inspired template studio: 100+ slides, a freemium pricing model, and a first paying client won from an investor-pitch deck.</p></div></div>
+    <div class="role"><div class="when">2024 — now</div><div class="what"><b>Founder</b><div class="org">CS Network · LGU</div><p>Founded a 500+ member CS peer-learning community, centralising notes and resources and coordinating technical guidance across the batch.</p></div></div>
+    <div class="role"><div class="when">2019 — 2022</div><div class="what"><b>Web Designer</b><div class="org">Carrd &amp; Neocities · Freelance</div><p>Where it started: custom Carrd sites on commission and hand-coded Neocities pages on the early indie web. The period that shaped how I design.</p></div></div>
+  </section>
+
+  <section aria-labelledby="s-proj">
+    <h2 id="s-proj">selected projects</h2>
+    <div class="proj"><b>MEOW</b><span class="p-links"><a href="https://github.com/xaynakive/meow" target="_blank" rel="noopener">source ↗</a></span><p>Open-source guided website builder: "Picrew, but it spits out a real, exportable site." A SiteConfig core, a live renderer, an exporter, and a catgloss style system.</p></div>
+    <div class="proj"><b>Mythirium</b><span class="p-links"><a href="https://github.com/xaynakive/mythirium" target="_blank" rel="noopener">source ↗</a></span><p>An interactive 3D portfolio cube: four glass faces, hand-built with CSS transforms, no frameworks and an unreasonable amount of atmosphere.</p></div>
+    <div class="proj"><b>PurrSona</b><span class="p-links"><a href="https://github.com/xaynakive/purrsona" target="_blank" rel="noopener">source ↗</a></span><p>An NLP/personality model: the ML playground where a lot of ideas got tested. Python, scikit-learn, ONNX.</p></div>
+    <div class="proj"><b>MeowTM</b><span class="p-links"><a href="https://github.com/xaynakive/meowtm" target="_blank" rel="noopener">source ↗</a></span><p>A colourful 16-bit ATM simulator written in x86 assembly (emu8086): PIN checks, balances, withdrawals and deposits.</p></div>
+    <div class="proj"><b>TechPolaroids</b><span class="p-links"><a href="https://techpolaroids.github.io" target="_blank" rel="noopener">source ↗</a></span><p>A creative-tech diary developed in public.</p></div>
+  </section>
+
+  <section aria-labelledby="s-skills">
+    <h2 id="s-skills">skills</h2>
+    <dl class="skills">
+      <dt>Frontend &amp; design</dt><dd>HTML, CSS, JavaScript, TypeScript, React, motion/animation, UI/UX, design systems, accessibility</dd>
+      <dt>AI / ML</dt><dd>Python, scikit-learn, ONNX, NLP, pandas, prompt engineering</dd>
+      <dt>Systems</dt><dd>C / C++, x86 Assembly, Swift</dd>
+      <dt>Security</dt><dd>red-team foundations, networking</dd>
+      <dt>Tools</dt><dd>Git &amp; GitHub, Supabase, Figma, the early indie web (Carrd, Neocities)</dd>
+      <dt>People</dt><dd>community-building (500+ members), mentoring, public speaking, product &amp; pricing, working async in review-based teams</dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="s-edu">
+    <h2 id="s-edu">education</h2>
+    <div class="role"><div class="when">expected 2027</div><div class="what"><b>BS Computer Science</b><div class="org">Lahore Garrison University · Lahore, Pakistan</div><p>Final year. SGPA 3.78. founder of the campus CS Network.</p></div></div>
+  </section>
+
+  <footer>
+    Written plainly on purpose. The full, animated version lives at <a href="https://xaynakive.com">xaynakive.com</a>. · signed with static &amp; sincerity · xaynakive · 2026
+  </footer>
+</main>
+
+<script>
+  (function(){
+    var root=document.documentElement, t=document.getElementById('theme');
+    try{ var s=localStorage.getItem('xayna_theme'); if(s){ root.setAttribute('data-theme',s); } }catch(e){}
+    function sync(){ var d=root.getAttribute('data-theme')==='dark'; t.textContent=d?'light mode':'dark mode'; t.setAttribute('aria-pressed',d?'true':'false'); }
+    sync();
+    t.addEventListener('click',function(){ var d=root.getAttribute('data-theme')==='dark'; var n=d?'light':'dark'; root.setAttribute('data-theme',n); try{ localStorage.setItem('xayna_theme',n); }catch(e){} sync(); });
+  })();
+</script>
+</body>
+</html>
