@@ -10,26 +10,30 @@ shifts between day and night, and hides small worlds behind a rotating cube.
 
 ## the rooms
 
-- **`/`** — the front page: Mythirium (the cube), selected worlds, story, toolkit
-- **`/archive/`** — everything else: shipped, half-built, and made at 3am
-- **`/glasstape/`** — a glass guestbook where visitors leave words + doodles
+- **Mythirium**: the glass cube. each face opens into its own object, and the object is the modal
+  - front → **the diary** (Sierra Blue chipboard, a lavender heart clasp, a starlight spiral)
+  - left → **the archive**, a pearl-white bookshelf where every project is a book
+  - back → **the toolkit**, a dual-screen handheld: skill below, proof above
+  - right → **the links**, a phone with a profile made for each platform
+- selected work, experience, how i got here
+- **send a signal**: a contact form beside **Ocean**, who answers from public lore only
+- **glasstapes**: a diary strangers can slip a page into
+- **`/resume/`**: a plain, anonymous CV
 
 ## built with
 
-- HTML, CSS, vanilla JavaScript — no frameworks
-- CSS 3D transforms (the Mythirium cube)
-- Canvas (the rain)
-- Supabase (the glasstape's live backend)
-- an unreasonable amount of atmosphere
-
-No build step. No dependencies. Just files you can open.
+- HTML, CSS, vanilla JavaScript: no frameworks, no build step
+- CSS 3D transforms and container queries (the cube and its objects)
+- Canvas (the rain and the stars)
 
 ## structure
 
 ```
-├─ index.html · home.css · home.js
-├─ archive/ → index.html · archive.css · archive.js
-└─ glasstape/ → index.html · glasstape.css · glasstape.js
+├─ index.html
+├─ assets/css/  site.css · objects.css
+├─ assets/js/   data.js · site.js · mythirium.js
+│               diary.js · shelf.js · handheld.js · phone.js
+└─ resume/      index.html
 ```
 
 ## credits
