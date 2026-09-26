@@ -13,8 +13,8 @@ shifts between day and night, and hides small worlds behind a rotating cube.
 - **Mythirium**: the glass cube. each face opens into its own object, and the object is the modal
   - front → **the diary** (Sierra Blue chipboard, a lavender heart clasp, a starlight spiral)
   - left → **the archive**, a pearl-white bookshelf where every project is a book
-  - back → **the toolkit**, a dual-screen handheld: skill below, proof above
-  - right → **the links**, a phone with a profile made for each platform
+  - back → **the toolkit**, a pearl-white clamshell handheld: skill cartridges below, proof above
+  - right → **the links**, a liquid-glass phone with a profile made for each platform
 - selected work, experience, how i got here
 - **send a signal**: a contact form beside **Ocean**, who answers from public lore only
 - **glasstapes**: a diary strangers can slip a page into
