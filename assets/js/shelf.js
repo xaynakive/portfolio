@@ -9,23 +9,28 @@
   XK.objects=XK.objects||{};
   var BY={}; XK.BOOKS.forEach(function(b,i){ b.n=i+1; BY[b.id]=b; });
 
+  /* composed like a real shelf in golden hour: packed rows, a matching series,
+     a cat asleep in the gap, and a stack of big-title books beside her */
   var ROWS=[
-    ['~','shimmerwhere','echoura','catgloss','meow','mythirium','~','_','@vase'],
-    ['techpolaroids','glasstapes','purrsona','breeze','~','@cat','_','@stack'],
-    ['~','codeneko','bubbles','3am','screenshots','_','@candle','~']
+    { items:['~','~','shimmerwhere','~','echoura','catgloss','~','meow','~','~','3am','~','~'] },
+    { series:['techpolaroids','glasstapes','purrsona','breeze','mythirium'], cat:1, stack:['bubbles','codeneko','portal','meowtm'] },
+    { items:['~','~','screenshots','~','~','@vase','~','~','~','@candle','~'] }
   ];
-  var FILL=['#efe8dc','#f3dde2','#e4e1ef','#dde7f0','#efe3d3','#e6ece2','#f1e7ea','#e9e5df'];
-
-  var CAT='<svg viewBox="0 0 120 72" aria-hidden="true">'
-    +'<path d="M100 44c14 2 16 14 2 18-8 2-18 0-24-2" stroke="#b7bac8" stroke-width="7" fill="none" stroke-linecap="round"/>'
-    +'<ellipse cx="66" cy="40" rx="40" ry="16" fill="#cdd0dc"/>'
-    +'<path d="M52 26c5 5 5 20 0 28M66 25c5 6 5 22 0 30M80 27c4 5 4 19 0 26" stroke="#b3b7c7" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>'
-    +'<path d="M36 50c2 6 2 12 1 19" stroke="#cdd0dc" stroke-width="8.5" stroke-linecap="round" fill="none"/>'
-    +'<path d="M33.5 70h7" stroke="#e9c8d0" stroke-width="2" stroke-linecap="round"/>'
-    +'<circle cx="30" cy="40" r="16" fill="#d6d9e3"/>'
-    +'<path d="M17 32l2-15 11 9z M34 25l9-11 3 15z" fill="#d0d3de"/><path d="M20 29l1.2-8 5.5 4.8z M36 25l5-6 1.6 8z" fill="#f1c6d2"/>'
-    +'<path d="M20 41q3.5 2.6 7 0M33 41q3.5 2.6 7 0" stroke="#5c6275" stroke-width="1.6" fill="none" stroke-linecap="round"/>'
-    +'<path d="M28.5 46.5l1.5 1.4 1.5-1.4z" fill="#e39aac"/><path d="M14 45l-7 1M14 48l-7 3M46 45l7 1M46 48l7 3" stroke="#f3f4f8" stroke-width=".9" stroke-linecap="round"/></svg>';
+  var FILL=['#e9e2d6','#d6dde8','#e1d9ea','#efe6da','#c8d3e0','#eadde0','#d9ded5','#f3eee6','#cfc8d9','#e4dcd0','#bfccdb','#efe2e6'];
+  var ROW_W=92.2, GAP=.45;
+  var CAT='<svg viewBox="0 0 140 84" aria-hidden="true"><defs>'
+    +'<linearGradient id="catG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c089"/><stop offset="1" stop-color="#d98c4c"/></linearGradient>'
+    +'<radialGradient id="catH" cx="45%" cy="40%" r="70%"><stop offset="0" stop-color="#f6c794"/><stop offset="1" stop-color="#df9453"/></radialGradient></defs>'
+    +'<path d="M14 58C8 40 26 22 58 20c30-2 52 10 56 28 2 8-2 14-10 16H22c-5 0-7-2-8-6z" fill="url(#catG)"/>'
+    +'<path d="M34 26c4 6 4 14 0 20M48 22c5 7 5 17 0 24M62 21c5 7 5 18 0 26M76 23c4 7 4 17 0 24" stroke="#c97a3e" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".55"/>'
+    +'<path d="M18 60c-6 2-6 9 2 10 14 2 40 1 56-1" stroke="#e39a58" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M18 60c-6 2-6 9 2 10" stroke="#c97a3e" stroke-width="8" fill="none" stroke-linecap="round" opacity=".6"/>'
+    +'<path d="M92 60c1 8 1 14 0 20" stroke="#f0b477" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M88 81h8" stroke="#f7d9bc" stroke-width="2.4" stroke-linecap="round"/>'
+    +'<ellipse cx="104" cy="44" rx="19" ry="16.5" fill="url(#catH)"/>'
+    +'<path d="M89 36l1-16 12 10z" fill="#e3985a"/><path d="M113 30l10-11 1 17z" fill="#e3985a"/><path d="M92 32l1-8 5 4.4z M116 29l5-5 .6 7.6z" fill="#f4c3b0"/>'
+    +'<path d="M96 40c3 3 6 3 9 1M111 40c3 2 6 2 8-1" stroke="#c97a3e" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>'
+    +'<ellipse cx="106" cy="52" rx="10" ry="6.5" fill="#fbe3c8"/>'
+    +'<path d="M96 46q3.4 2.6 6.8 0M109 46q3.4 2.6 6.8 0" stroke="#6b3f22" stroke-width="1.6" fill="none" stroke-linecap="round"/>'
+    +'<path d="M104.8 50.6l1.6 1.4 1.6-1.4z" fill="#d97a7a"/><path d="M92 51l-8 .6M92 54l-8 2.6M120 51l8 .6M120 54l8 2.6" stroke="#fff6ea" stroke-width=".8" stroke-linecap="round"/></svg>';
   function flower(tulip,x,y,rot){ var g=tulip
       ?'<path d="M20 36C19 54 21 66 20 79" stroke="#7fa77a" stroke-width="2.2" fill="none"/><path d="M10 19C10 8 16 4 20 11C24 4 30 8 30 19C30 31 25 37 20 37C15 37 10 31 10 19z" fill="#7d9be0"/><path d="M20 11C17 19 17 29 20 37C23 29 23 19 20 11z" fill="#5c7cc9"/>'
       :'<path d="M20 34C19 52 21 66 20 79" stroke="#5f7d5a" stroke-width="2.2" fill="none"/><path d="M20 58C29 55 33 47 31 40C25 45 22 51 20 58z" fill="#6d8f67"/><circle cx="20" cy="21" r="12" fill="#2a2233"/><path d="M20 21m-3 0a3 3 0 1 1 6 0a6 6 0 1 1-12 0a9 9 0 1 1 18 0" stroke="#55466b" stroke-width="1.3" fill="none"/>';
@@ -39,23 +44,30 @@
     +'<path d="M8 46a14 14 0 0 0 12 8h30a14 14 0 0 0 12-8" stroke="rgba(120,126,145,.3)" stroke-width="1.5" fill="none"/></svg>';
 
   var seed=17; function rnd(){ seed=(seed*9301+49297)%233280; return seed/233280; }
-  function filler(i){ var w=(3+rnd()*1.6).toFixed(2), h=(13.5+rnd()*4).toFixed(2); return '<span class="bk bk-f" style="--w:'+w+';--h:'+h+';--c:'+FILL[i%FILL.length]+'" aria-hidden="true"></span>'; }
+  function filler(){ var w=+(2.4+rnd()*2.8).toFixed(2), h=(13+rnd()*6).toFixed(2), c=FILL[Math.floor(rnd()*FILL.length)], lab=rnd()>.5;
+    return { w:w, html:'<span class="bk bk-f'+(lab?' lab':'')+'" style="--w:'+w+';--h:'+h+';--c:'+c+'" aria-hidden="true"></span>' }; }
   function vars(b){ return '--w:'+b.w+';--h:'+(b.h||4)+';--c:'+b.c+';--t:'+b.t+';--ff:'+b.ff+';--fs:'+b.fs+';--fw:'+(b.wt||400); }
-  function spine(b){ return '<button type="button" class="bk'+(b.foil?' foil':'')+(b.up?' up':'')+(b.w>=9?' wide':'')+'" data-book="'+b.id+'" style="'+vars(b)+'" aria-label="pull out '+esc(b.title)+'">'
+  function spine(b,cls){ return { w:b.w, html:'<button type="button" class="bk'+(cls||'')+(b.foil?' foil':'')+(b.up?' up':'')+(b.w>=9?' wide':'')+'" data-book="'+b.id+'" style="'+vars(b)+'" aria-label="pull out '+esc(b.title)+'">'
       +'<span class="bk-band" aria-hidden="true"></span><span class="bk-t">'+esc(b.title)+'</span>'+(b.noa?'':'<span class="bk-a" aria-hidden="true">xayna</span>')+'<span class="bk-mark" aria-hidden="true"></span>'
-      +(b.tag?'<span class="bk-tag" aria-hidden="true">'+esc(b.tag)+'</span>':'')+'</button>'; }
-  function flat(b,x){ return '<button type="button" class="hbk'+(b.up?' up':'')+'" data-book="'+b.id+'" style="'+vars(b)+';--x:'+x+'" aria-label="pull out '+esc(b.title)+'"><span class="hbk-t">'+esc(b.title)+'</span><em aria-hidden="true">xayna</em></button>'; }
+      +(b.tag?'<span class="bk-tag" aria-hidden="true">'+esc(b.tag)+'</span>':'')+'</button>' }; }
+  function series(b){ return { w:Math.max(b.w,3.2), html:'<button type="button" class="bk series" data-book="'+b.id+'" style="--w:'+Math.max(b.w,3.2)+';--h:15.8" aria-label="pull out '+esc(b.title)+'"><span class="sr-band"><span class="bk-t">'+esc(b.title)+'</span></span><span class="sr-mark" aria-hidden="true"></span></button>' }; }
+  function seriesFill(){ var w=+(3.4+rnd()*1.4).toFixed(2); return { w:w, html:'<span class="bk series bk-f" style="--w:'+w+';--h:15.8" aria-hidden="true"><span class="sr-band"></span><span class="sr-mark"></span></span>' }; }
+  function flat(b,x){ return '<button type="button" class="hbk'+(b.up?' up':'')+'" data-book="'+b.id+'" style="'+vars(b)+';--x:'+x+'" aria-label="pull out '+esc(b.title)+'"><span class="hbk-t">'+esc(b.title)+'</span><em aria-hidden="true">'+esc(b.sub||'xayna')+'</em></button>'; }
+  function deco(t){ if(t==='@vase') return { w:9, html:'<span class="deco vase" aria-hidden="true">'+VASE+'</span>' };
+    return { w:9, html:'<span class="deco candle" aria-hidden="true">'+CANDLE+'</span>' }; }
+  function packed(items){ var parts=items.map(function(t){ if(t==='~') return {slot:1,list:[]}; if(t.charAt(0)==='@') return deco(t); return spine(BY[t]); });
+    var used=function(){ return parts.reduce(function(a,p){ return a+(p.slot?p.list.reduce(function(x,f){ return x+f.w+GAP; },0):p.w+GAP); },0); };
+    var slots=parts.filter(function(p){ return p.slot; }), k=0;
+    parts.forEach(function(p){ if(p.slot) p.list.push(filler()); });
+    while(used()<ROW_W-.8&&k<120){ var f=filler(), room=ROW_W-used()-GAP; if(f.w>room){ if(room<2.2) break; f=filler(); f.w=+room.toFixed(2); f.html=f.html.replace(/--w:[0-9.]+/,'--w:'+f.w); } slots[(k*7)%slots.length].list.push(f); k++; }
+    return parts.map(function(p){ return p.slot?p.list.map(function(f){ return f.html; }).join(''):p.html; }).join(''); }
+  function middle(r){ var s=r.series.map(function(id){ return series(BY[id]); }); s.splice(2,0,seriesFill()); s.push(seriesFill()); s.unshift(seriesFill());
+    var stack=r.stack.map(function(id,i){ return flat(BY[id],[.2,-.6,.5,-.2][i%4]); }).join('');
+    return s.map(function(x){ return x.html; }).join('')+'<span class="shelf-cat" aria-hidden="true">'+CAT+'<span class="zz">z<i>z</i></span></span><span class="gap" aria-hidden="true"></span><span class="bk-stack">'+stack+'</span>'; }
 
   function build(){
-    seed=17; var fi=0;
-    var rows=ROWS.map(function(r){ return '<div class="shelf-row">'+r.map(function(t){
-      if(t==='~') return filler(fi++);
-      if(t==='_') return '<span class="gap" aria-hidden="true"></span>';
-      if(t==='@vase') return '<span class="deco vase" aria-hidden="true">'+VASE+'</span>';
-      if(t==='@candle') return '<span class="deco candle" aria-hidden="true">'+CANDLE+'</span>';
-      if(t==='@cat') return '<span class="shelf-cat" aria-hidden="true">'+CAT+'<span class="zz">z<i>z</i></span></span>';
-      if(t==='@stack') return '<span class="bk-stack"><span class="hbk hbk-f" style="--w:19;--c:#e9e4ee;--x:.6" aria-hidden="true"></span>'+flat(BY.portal,-.4)+flat(BY.meowtm,.3)+'</span>';
-      return spine(BY[t]); }).join('')+'</div><div class="shelf-board" aria-hidden="true"></div>'; }).join('');
+    seed=17;
+    var rows=ROWS.map(function(r,i){ return '<div class="shelf-row r'+(i+1)+'">'+(r.series?middle(r):packed(r.items))+'</div><div class="shelf-board" aria-hidden="true"></div>'; }).join('');
     var el=document.createElement('div'); el.className='shelf';
     el.innerHTML='<button class="metal s-close" type="button" aria-label="close the archive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>'
       +'<div class="cabinet"><div class="cab-plaque"><span>the archive</span></div><div class="cab-inner"><div class="cab-rows">'+rows+'</div><span class="cab-light" aria-hidden="true"></span></div></div>'

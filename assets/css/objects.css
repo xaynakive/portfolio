@@ -300,6 +300,38 @@ html[data-theme="light"] .shelf-hint{color:#46506b}
 .s-close{position:absolute;top:0;right:-54px;width:40px;height:40px;border-radius:50%;padding:0;z-index:20}
 .s-close svg{width:46%;height:46%}
 .shelf.narrow .s-close{top:-50px;right:0}
+/* ── golden hour on a pearl shelf ── */
+.cab-inner{background:radial-gradient(90% 70% at 0% 0%,rgba(255,194,118,.5),rgba(255,214,160,.16) 45%,transparent 70%),linear-gradient(180deg,#efe7dc 0%,#e6dccf 100%);
+  box-shadow:inset 0 calc(var(--u)*1.2) calc(var(--u)*2.2) rgba(80,62,44,.24),inset calc(var(--u)*1) 0 calc(var(--u)*2) rgba(80,62,44,.1),inset calc(var(--u)*-1.4) 0 calc(var(--u)*2.4) rgba(80,62,44,.2)}
+.cab-light{z-index:6;mix-blend-mode:soft-light;background:linear-gradient(122deg,transparent 8%,rgba(255,206,130,.55) 18%,rgba(255,220,160,.2) 30%,transparent 40%,transparent 50%,rgba(255,206,130,.35) 58%,transparent 68%)}
+.cab-rows::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:6;background:linear-gradient(100deg,rgba(255,190,110,.14),transparent 45%,rgba(60,40,30,.1))}
+.shelf-row::before{content:"";position:absolute;left:0;right:0;top:0;height:40%;pointer-events:none;background:linear-gradient(180deg,rgba(70,52,36,.26),transparent);z-index:-1}
+.shelf-board{background:linear-gradient(180deg,#fffdf9 0%,#f2ece2 50%,#dcd2c3 100%);box-shadow:0 calc(var(--u)*.8) calc(var(--u)*1.4) rgba(70,52,36,.3),inset 0 1px 0 #fff}
+/* spines: a rim of warm light on the left, shade on the right, ornament bands */
+.bk{background-image:linear-gradient(90deg,rgba(255,214,150,.4) 0,rgba(255,255,255,.28) 12%,rgba(255,255,255,0) 40%,rgba(40,28,20,.1) 82%,rgba(40,28,20,.2) 100%),
+    linear-gradient(180deg,transparent 7%,color-mix(in srgb,var(--t,#6b5a48) 40%,transparent) 7% 7.5%,transparent 7.5% 8.6%,color-mix(in srgb,var(--t,#6b5a48) 40%,transparent) 8.6% 8.9%,transparent 8.9% 90.6%,color-mix(in srgb,var(--t,#6b5a48) 40%,transparent) 90.6% 91.1%,transparent 91.1%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 2px)}
+.bk-f{--t:color-mix(in srgb,var(--c) 55%,#5a4a3c)}
+.bk-f.lab::after{content:"";position:absolute;left:18%;right:18%;left:26%;right:26%;top:16%;height:calc(var(--u)*2);border-radius:1px;background:rgba(255,255,255,.4);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 60%,#5a4a3c)}
+.bk.foil .bk-t{background:linear-gradient(180deg,#f4f6f9,#a9b1bf 45%,#fbfcfe 60%,#9aa3b2);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(90,70,40,.35))}
+/* the series: Sierra Blue, a pearl band, a little silver mark, all in a row */
+.bk.series{--c:#9db7d1;--t:#44617f;padding:calc(var(--u)*2.6) 0 calc(var(--u)*1.2);justify-content:space-between}
+.bk.series:nth-child(odd){--c:#a4bdd6}
+.sr-band{flex:none;height:56%;align-self:stretch;margin:0 calc(var(--u)*.35);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f6f3ec;border-radius:1px;box-shadow:inset 0 0 0 1px rgba(68,97,127,.18)}
+.bk.series .bk-t{font-family:"Italiana","Cinzel",serif;font-size:calc(var(--u)*1.25);letter-spacing:.06em;color:#44617f;flex:none;height:100%}
+.sr-mark{width:calc(var(--u)*1.4);height:calc(var(--u)*1.4);margin-top:calc(var(--u)*.8);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#c9ced8 60%,#9aa3b2);box-shadow:0 1px 1px rgba(40,50,70,.3)}
+/* the stack: big titles, like a row of art books */
+.bk-stack{margin-left:auto;gap:0}
+.hbk{height:calc(var(--u)*4.3);justify-content:center;gap:calc(var(--u)*1.6);border-radius:calc(var(--u)*.25);
+  background-image:linear-gradient(180deg,rgba(255,224,170,.35),rgba(255,255,255,0) 40%,rgba(40,28,20,.12)),repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 2px);
+  box-shadow:inset 0 0 0 1px rgba(80,62,44,.1),0 1px 2px rgba(70,52,36,.25)}
+.hbk-t{font-size:calc(var(--fs)*var(--u));line-height:1}
+.hbk em{letter-spacing:.12em;font-size:calc(var(--u)*.78);text-transform:lowercase;opacity:.7;white-space:nowrap}
+.shelf-cat{width:calc(var(--u)*22);margin:0 0 calc(var(--u)*-3.15) calc(var(--u)*.8)}
+.shelf-cat svg{filter:drop-shadow(0 calc(var(--u)*.6) calc(var(--u)*.8) rgba(70,52,36,.32))}
+.zz{left:calc(var(--u)*17);top:calc(var(--u)*-1.6);color:#b48a5c}
+.deco svg{filter:drop-shadow(0 calc(var(--u)*.5) calc(var(--u)*.7) rgba(70,52,36,.26))}
+
 /* the card: perforated starlight stamp, a ribbon from the lower left, details from the top */
 .bcard{position:absolute;inset:calc(var(--u)*4.4) calc(var(--u)*3) calc(var(--u)*3);z-index:10;display:grid;grid-template-columns:40% 1fr;gap:calc(var(--u)*3.4);align-items:center;padding:0 calc(var(--u)*2.4);
   border-radius:calc(var(--u)*.6);background:rgba(243,241,237,.55);animation:bcFade .4s ease both}
